@@ -23,7 +23,7 @@
 
 ## Project Overview
 
-This project automates functional testing for a demo e-commerce web application  [https://demo.opencart.com/](https://demo.opencart.com/).  It is built on a robust hybrid automation framework using:
+This project automates functional testing for a demo e-commerce web application  [https://tutorialsninja.com/demo](https://tutorialsninja.com/demo).  It is built on a robust hybrid automation framework using:
 
 -   **Page Object Model (POM)**: For maintainable and reusable code.
 -   **Selenium**: For web browser automation.
@@ -60,30 +60,84 @@ This project automates functional testing for a demo e-commerce web application 
 
 ### 1. Prerequisites
 
-⚙️ Installation & Setup
-Prerequisites
-Python 3.8 or higher installed
-
-pip (Python package manager)
-Chrome/Firefox/Edge browser
-
-python -m venv .venv
-.venv\Scripts\activate
-macOS/Linux:
-
-python3 -m venv .venv
-source .venv/bin/activate
-Step 3: Install Dependencies
-pip install -r requirements.txt
-Step 4: Configure WebDriver
-The framework uses Selenium WebDriver. Ensure the appropriate driver (ChromeDriver, GeckoDriver, etc.) is installed and available in your system PATH, or use WebDriver Manager for automatic driver management.
-
+-   #### For Local System
+    
+    -   **Python 3.9+**  installed.
+    -   **Node.js Installed**
+        -   Allure CLI requires Node.js. Install it from the official  [Node.js website](https://nodejs.org/).
+        -   Run the following command to install Allure CLI:
+            
+            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+            
+            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)npm install -g allure-commandline` 
+            
+        -   Verify installation by running:
+            
+            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+            
+            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)allure --version` 
+            
+    -   **Allure Command-line Tool**
+        -   Add Allure CLI to your system path if necessary.
+    -   **Python Dependencies**
+        -   Install the required Python libraries using  `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/run.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pip`:
+            
+            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+            
+            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pip install -r requirements.txt` 
+            
+-   
+    -   **In Jenkins Global tool configurations**
+        
+        -   Add Java configuration:
+            -   Name:  `Java 21`  (any name)
+            -   Provide installation path (e.g.,  `/usr/lib/jvm/java-21-amazon-corretto`)
+            -   Do not select "Install automatically" since Java is already installed
+        -   Configure Allure CLI
+            -   Name:  `Allure CLI`  (any name)
+            -   Provide installation path (e.g.,  `/opt/allure`)
 
 ### 2. Clone the Repository
 
-https://github.com/NeelimaReddy123/selenium-pytest-framework/
+![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
 
-remote: cd selenium-pytest-framework` 
+`[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)https://github.com/NeelimaReddy123/selenium-pytest-framework/
+remote:  cd selenium-pytest-framework` 
+
+## Run Tests Locally
+
+### 1. Setup in config.ini
+
+set execution=parallel  &  run_environment=local
+
+### 2. Run the test scripts in parallel mode()
+
+![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+
+`[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pytest tests/ --alluredir=reports -n 3` 
+
+### 3. Generate Allure Reports
+
+![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+
+ `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#) allure generate reports --clean -o allure_report allure open allure_report` 
+
+## Running Tests with Cloud Integration
+
+### 1. Dockerized Selenium Grid
+
+The docker-compose.yml file sets up a Selenium Hub and 3 browser nodes  (Chrome,  Firefox,  Edge)  for parallel testing.
+
+### 2. Jenkins CI/CD
+
+'Jenkinsfile'  is configured for installing python,pip,docker  &  all other dependencies using requirements.txt file,  then runs python scrips,  generate allure reports
+
+### 3. Creating New Jenkins Pipeline Job
+
+-   Navigate to the Jenkins dashboard and create a new pipeline job.
+-   Configure the pipeline to use your GitHub repository & also link the Jenkinsfile
+-   Set up build triggers like GitHub webhook or schedule (optional)
+-   Run the build & pipeline will handle the execution of test scripts, Docker, and report generation.
 
 ## Folder Structure
 
