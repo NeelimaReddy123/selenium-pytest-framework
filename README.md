@@ -142,10 +142,10 @@ The docker-compose.yml file sets up a Selenium Hub and 3 browser nodes  (Chrome,
 ## Folder Structure
 
 selenium-pytest-framework/
-├── assets/                 # Screenshots and report images for documentation
-├── Configurations/         # Global environment variables and config.ini
+├── assets/                    # Screenshots and report images for documentation
+├── Configurations/           # Global environment variables and config.ini
 ├── pageObjects/            # Encapsulated web elements and page action methods
-├── tests/              # Pytest automation scripts and conftest.py fixtures
+├── tests/                   # Pytest automation scripts and conftest.py fixtures
 ├── testData/               # External files (Excel/JSON) for data-driven testing
 ├── utilities/              # Custom logger, config readers, and driver handlers
 ├── docker-compose.yml      # Configuration for local Selenium Grid setup
