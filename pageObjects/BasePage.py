@@ -73,13 +73,16 @@ class Base_Page():
 
     def click_element(self, locator):
         """Click on element"""
-        element = self.wait_for_element_visibility(locator)
+        element = self.wait_for_element_clickable(locator)
         element.click()
 
     def click_element_by_index(self, locator, index=0):
         """Click on specific element from list"""
+        self.wait_for_elements_presence(locator)  # Wait for presence first
         elements = self.get_elements(locator)
         if elements and index < len(elements):
+            # Optionally also wait for clickability:
+            self.wait_for_element_clickable(locator)
             elements[index].click()
         else:
             raise IndexError(f"No element found at index {index}")

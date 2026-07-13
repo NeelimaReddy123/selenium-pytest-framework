@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pageObjects.BasePage import Base_Page
+from pageObjects.LoginPage import LoginPage
 from pageObjects.RegisterPage import Register_Page
 
 
@@ -29,6 +30,10 @@ class Home_Page(Base_Page):
         self.click_element(self.REGISTER_LINK)
         return Register_Page(self.driver)
 
+    def click_login_link(self):
+        self.click_element(self.LOGIN_LINK)
+        return LoginPage(self.driver)
+
     # ============ High-level Actions (Business workflows) ============
 
     def navigate_to_register_page(self):
@@ -39,3 +44,7 @@ class Home_Page(Base_Page):
         """
         self.click_on_myaccount_dropdown_menu()
         return self.click_register_link()
+
+    def navigate_to_login_page(self):
+        self.click_on_myaccount_dropdown_menu()
+        return self.click_login_link()

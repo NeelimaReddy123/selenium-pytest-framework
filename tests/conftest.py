@@ -52,6 +52,7 @@ def driver():
     # Navigate to base URL
     logging.info(f"Navigating to {base_url}")
     driver.get(base_url)
+    
 
     # Wait for page to load and bot check to pass
     logging.info("Waiting for page to load...")
