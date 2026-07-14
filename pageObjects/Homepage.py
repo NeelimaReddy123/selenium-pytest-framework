@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from pageObjects.BasePage import Base_Page
 from pageObjects.LoginPage import LoginPage
 from pageObjects.RegisterPage import Register_Page
+from pageObjects.SearchPage import SearchPage
 
 
 class Home_Page(Base_Page):
@@ -34,6 +35,13 @@ class Home_Page(Base_Page):
         self.click_element(self.LOGIN_LINK)
         return LoginPage(self.driver)
 
+    def enter_product_into_search_box_field(self, product_name):
+        self.type_into_element(product_name, self.SEARCH_BOX)
+
+    def click_on_search_box(self):
+        self.click_element(self.SEARCH_BUTTON)
+        return SearchPage(self.driver)
+
     # ============ High-level Actions (Business workflows) ============
 
     def navigate_to_register_page(self):
@@ -48,3 +56,7 @@ class Home_Page(Base_Page):
     def navigate_to_login_page(self):
         self.click_on_myaccount_dropdown_menu()
         return self.click_login_link()
+
+    def search_for_product(self, product_name):
+        self.enter_product_into_search_box_field(product_name)
+        return self.click_on_search_box()
