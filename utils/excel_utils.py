@@ -14,6 +14,7 @@ def get_data_from_excel(file_name, sheet_name):
 
     # 2. Open the workbook EXACTLY ONCE
     workbook = openpyxl.load_workbook(excel_path)
+    print(workbook.sheetnames)
     sheet = workbook[sheet_name]
 
     data_list = []

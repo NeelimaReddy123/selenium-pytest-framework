@@ -2,6 +2,7 @@
 
 ### A Hybrid Automation Framework for Testing an E-commerce Application Using Selenium, Pytest, Allure, Docker, Jenkins
 
+![img.png](img.png)
 ----------
 
 ## Table of Contents

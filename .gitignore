@@ -14,6 +14,9 @@ build/
 # Virtual Environment
 .venv/
 venv/
+venv38/
 
 # IDE
 .idea/
+
+test_data/.~lock.data_excel.xlsx#

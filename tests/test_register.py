@@ -2,34 +2,26 @@ import time
 from datetime import datetime
 import logging
 import pytest
+from selenium.webdriver.common.fedcm import account
 
 from pageObjects.Homepage import Home_Page
 from tests.base_test import BaseTest
 from utils.email_utils import generate_email
+from utils.excel_utils import get_data_from_excel
 
 
 @pytest.mark.order(3)  # Set the desired order for this test file
+
 class TestRegister(BaseTest):
-    def test_register_mandatory_fields(self):
-        logging.info("test_register--> test_register_mandatory_fields started")
-
-        home_page = Home_Page(self.driver)
-        register_page = home_page.navigate_to_register_page()
-        account_success_page = register_page.register_new_account("test_11", "test", self.generate_email(), "8898898987", "qwerty456", "qwerty456", False, True)
-        print(account_success_page)
-        exp_txt = "Your Account Has Been Created!"
-        assert account_success_page.get_account_created_message() == exp_txt
-
-        logging.info("test_register--> test_register_mandatory_fields completed\n")
-
-    def test_register_all_fields(self):
+    @pytest.mark.parametrize("firstname,lastname,phone,password, confirm_password, subscribe_letter, privacy_policy ", get_data_from_excel("data_excel.xlsx", "Register_test"))
+    def test_register_all_fields(self,firstname, lastname, phone, password, confirm_password, subscribe_letter, privacy_policy):
         logging.info("test_register--> test_register_all_fields started")
 
         home_page = Home_Page(self.driver)
         register_page = home_page.navigate_to_register_page()
-        account_success_page = register_page.register_new_account("Arjun", "reddy", self.generate_email(), "32423", "Arjun@456", "Arjun@456", True, True)
+        account_success_page= register_page.register_new_account(firstname, lastname, generate_email(),phone, password, confirm_password, subscribe_letter, privacy_policy)
         exp_txt = "Your Account Has Been Created!"
-        assert account_success_page.__eq__(exp_txt)
+        assert account_success_page.get_account_created_message() == exp_txt
         logging.info("test_register--> test_register_all_fields completed\n")
 
     def test_register_existing_mail(self):

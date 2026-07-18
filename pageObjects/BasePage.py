@@ -60,17 +60,6 @@ class Base_Page():
         element.clear()
         element.send_keys(text)
 
-    def type_into_element_by_index(self, text, locator, index=0):
-        """Type text into specific element from list"""
-        self.wait_for_elements_presence(locator)
-        elements = self.get_elements(locator)
-        if elements and index < len(elements):
-            elements[index].click()
-            elements[index].clear()
-            elements[index].send_keys(text)
-        else:
-            raise IndexError(f"No element found at index {index}")
-
     def click_element(self, locator):
         """Click on element"""
         element = self.wait_for_element_clickable(locator)
@@ -91,15 +80,6 @@ class Base_Page():
         except:
             return False
 
-    def is_element_displayed_by_index(self, locator, index=0):
-        """Check if specific element from list is displayed"""
-        self.wait_for_elements_presence(locator)
-        elements = self.get_elements(locator)
-        if elements and index < len(elements):
-            return elements[index].is_displayed()
-        else:
-            raise IndexError(f"No element found at index {index}")
-
     def is_element_enabled(self, locator):
         """Check if element is enabled"""
         element = self.wait_for_element_visibility(locator)
@@ -111,15 +91,6 @@ class Base_Page():
         """Get text content of element"""
         element = self.wait_for_element_visibility(locator)
         return element.text
-
-    # def get_element_text_by_index(self, locator, index=0):
-    #     """Get text from specific element in list"""
-    #     self.wait_for_elements_presence(locator)
-    #     elements = self.get_elements(locator)
-    #     if elements and index < len(elements):
-    #         return elements[index].text
-    #     else:
-    #         raise IndexError(f"No element found at index {index}")
 
     def get_element_attribute(self, locator, attribute_name):
         """Get element attribute value"""
