@@ -47,7 +47,6 @@ class Home_Page(Base_Page):
     def navigate_to_register_page(self):
 
         """
-        Navigate to Register page via My Account dropdown
         Returns RegisterPage object
         """
         self.click_on_myaccount_dropdown_menu()

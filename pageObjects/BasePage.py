@@ -112,14 +112,14 @@ class Base_Page():
         element = self.wait_for_element_visibility(locator)
         return element.text
 
-    def get_element_text_by_index(self, locator, index=0):
-        """Get text from specific element in list"""
-        self.wait_for_elements_presence(locator)
-        elements = self.get_elements(locator)
-        if elements and index < len(elements):
-            return elements[index].text
-        else:
-            raise IndexError(f"No element found at index {index}")
+    # def get_element_text_by_index(self, locator, index=0):
+    #     """Get text from specific element in list"""
+    #     self.wait_for_elements_presence(locator)
+    #     elements = self.get_elements(locator)
+    #     if elements and index < len(elements):
+    #         return elements[index].text
+    #     else:
+    #         raise IndexError(f"No element found at index {index}")
 
     def get_element_attribute(self, locator, attribute_name):
         """Get element attribute value"""

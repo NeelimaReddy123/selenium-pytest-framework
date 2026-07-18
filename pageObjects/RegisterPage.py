@@ -1,6 +1,8 @@
 import time
 
 from selenium.webdriver.common.by import By
+
+from pageObjects.AccountSuccessPage import Account_Success_Page
 from pageObjects.BasePage import Base_Page
 
 
@@ -9,7 +11,6 @@ class Register_Page(Base_Page):
     Register Page Object Model
     Handles user account registration
     """
-
     # ============ Locators ============
     FIRST_NAME_INPUT = (By.ID, "input-firstname")
     LAST_NAME_INPUT = (By.ID, "input-lastname")
@@ -93,9 +94,6 @@ class Register_Page(Base_Page):
         """Get password field warning"""
         return self.get_element_text(self.PASSWORD_WARNING)
 
-    def get_account_created_message(self):
-        """Get account creation success message"""
-        return self.get_element_text(self.ACCOUNT_CREATION_MESSAGE)
 
     # ============ High-level Actions ============
 
@@ -119,8 +117,7 @@ class Register_Page(Base_Page):
         if agree_privacy:
             self.agree_to_privacy_policy()
         self.click_continue()
-        time.sleep(1)
-        return self.get_account_created_message()
+        return Account_Success_Page(self.driver)
 
     def verify_all_warning_messages(self, expected_warnings):
         """

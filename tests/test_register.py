@@ -17,7 +17,7 @@ class TestRegister():
         account_success_page = register_page.register_new_account("test_11", "test", generate_email(), "8898898987", "qwerty456", "qwerty456", False, True)
         print(account_success_page)
         exp_txt = "Your Account Has Been Created!"
-        assert account_success_page == exp_txt
+        assert account_success_page.get_account_created_message() == exp_txt
 
         logging.info("test_register--> test_register_mandatory_fields completed\n")
 
@@ -26,9 +26,9 @@ class TestRegister():
 
         home_page = Home_Page(driver)
         register_page = home_page.navigate_to_register_page()
-        account_success_page = register_page.register_new_account("Arjun", "email", generate_email(), "32423", "Arjun@456", "Arjun@456", True, True)
+        account_success_page = register_page.register_new_account("Arjun", "reddy", generate_email(), "32423", "Arjun@456", "Arjun@456", True, True)
         exp_txt = "Your Account Has Been Created!"
-        assert account_success_page == exp_txt
+        assert account_success_page.__eq__(exp_txt)
         logging.info("test_register--> test_register_all_fields completed\n")
 
     def test_register_existing_mail(self,driver):
