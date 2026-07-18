@@ -10,7 +10,7 @@ from utils.excel_utils import get_data_from_excel
 
 @pytest.mark.order(2)
 class TestLogin(BaseTest):
-    @pytest.mark.parametrize("email,password", get_data_from_excel("data_excel.xlsx", "Valid_Login"))
+    @pytest.mark.parametrize("email,password", get_data_from_excel("test_data_excel.xlsx", "valid_login"))
     def test_valid_login(self,email,password):
         logging.info("test_login--> test_login_valid_cred started")
         homepage=Home_Page(self.driver)
@@ -19,7 +19,7 @@ class TestLogin(BaseTest):
         assert account_page.is_account_info_visible()
         logging.info("test_login--> test_login_valid_cred completed\n")
 
-    @pytest.mark.parametrize("email,password", get_data_from_excel("data_excel.xlsx", "Invalid_login"))
+    @pytest.mark.parametrize("email,password", get_data_from_excel("test_data_excel.xlsx", "Invalid_Login"))
     def test_invalid_login(self, email, password):
         logging.info("test_invalid_login--> test_invalid_login started")
         homepage=Home_Page(self.driver)

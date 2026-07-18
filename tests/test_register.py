@@ -13,7 +13,7 @@ from utils.excel_utils import get_data_from_excel
 @pytest.mark.order(3)  # Set the desired order for this test file
 
 class TestRegister(BaseTest):
-    @pytest.mark.parametrize("firstname,lastname,phone,password, confirm_password, subscribe_letter, privacy_policy ", get_data_from_excel("data_excel.xlsx", "Register_test"))
+    @pytest.mark.parametrize("firstname,lastname,phone,password, confirm_password, subscribe_letter, privacy_policy ", get_data_from_excel("test_data_excel.xlsx", "Register_Users"))
     def test_register_all_fields(self,firstname, lastname, phone, password, confirm_password, subscribe_letter, privacy_policy):
         logging.info("test_register--> test_register_all_fields started")
 
