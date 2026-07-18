@@ -4,37 +4,38 @@ import logging
 import pytest
 
 from pageObjects.Homepage import Home_Page
+from tests.base_test import BaseTest
 from utils.email_utils import generate_email
 
 
 @pytest.mark.order(3)  # Set the desired order for this test file
-class TestRegister():
-    def test_register_mandatory_fields(self,driver):
+class TestRegister(BaseTest):
+    def test_register_mandatory_fields(self):
         logging.info("test_register--> test_register_mandatory_fields started")
 
-        home_page = Home_Page(driver)
+        home_page = Home_Page(self.driver)
         register_page = home_page.navigate_to_register_page()
-        account_success_page = register_page.register_new_account("test_11", "test", generate_email(), "8898898987", "qwerty456", "qwerty456", False, True)
+        account_success_page = register_page.register_new_account("test_11", "test", self.generate_email(), "8898898987", "qwerty456", "qwerty456", False, True)
         print(account_success_page)
         exp_txt = "Your Account Has Been Created!"
         assert account_success_page.get_account_created_message() == exp_txt
 
         logging.info("test_register--> test_register_mandatory_fields completed\n")
 
-    def test_register_all_fields(self,driver):
+    def test_register_all_fields(self):
         logging.info("test_register--> test_register_all_fields started")
 
-        home_page = Home_Page(driver)
+        home_page = Home_Page(self.driver)
         register_page = home_page.navigate_to_register_page()
-        account_success_page = register_page.register_new_account("Arjun", "reddy", generate_email(), "32423", "Arjun@456", "Arjun@456", True, True)
+        account_success_page = register_page.register_new_account("Arjun", "reddy", self.generate_email(), "32423", "Arjun@456", "Arjun@456", True, True)
         exp_txt = "Your Account Has Been Created!"
         assert account_success_page.__eq__(exp_txt)
         logging.info("test_register--> test_register_all_fields completed\n")
 
-    def test_register_existing_mail(self,driver):
+    def test_register_existing_mail(self):
         logging.info("test_register--> test_register_existing_mail started")
 
-        home_page = Home_Page(driver)
+        home_page = Home_Page(self.driver)
         register_page = home_page.navigate_to_register_page()
         register_page.register_new_account("Neelima", "Reddy", "Madanapalli123@gmail.com", "8723456781", "neel@456", "neel@456", False, True)
         exp_txt = "Warning: E-Mail Address is already registered!"
@@ -42,10 +43,10 @@ class TestRegister():
 
         logging.info("test_register--> test_register_existing_mail completed\n")
 
-    def test_register_without_anyfields(self,driver):
+    def test_register_without_anyfields(self,):
         logging.info("test_register--> test_register_without_anyfields started")
 
-        home_page = Home_Page(driver)
+        home_page = Home_Page(self.driver)
         register_page = home_page.navigate_to_register_page()
         register_page.register_new_account("", "", "", "", "", "", False, False)
         exp_privacy_policy_msg = "Warning: You must agree to the Privacy Policy!"

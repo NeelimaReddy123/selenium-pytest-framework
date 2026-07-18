@@ -1,45 +1,75 @@
 import pytest
 import logging
-import os
-import time
-
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from configparser import ConfigParser
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from utils import read_configurations as rc
 
 
-@pytest.fixture(scope="function")
-def driver():
-    """
-    Pytest fixture to initialize Chrome WebDriver.
-    Reads application URL from config.ini.
-    """
+# Ensure you have your other fixtures (log_on_failure, etc.) above this
 
-    logging.info("Initializing Chrome WebDriver...")
+@pytest.fixture()
+def setup_and_teardown(request, worker_id):
+    global driver
+    browser = None
+    options = None
 
-    # Read configuration
-    config = ConfigParser()
-    config_path = os.path.join(os.path.dirname(__file__),   "..",   "utils", "config.ini")
-    config.read(config_path)
+    # 1. Read configurations from config.ini
+    exec_mode = rc.read_configuration("basic info", "execution")
+    run_env = rc.read_configuration("basic info", "run_environment")
+    browser_mode = rc.read_configuration("basic info", "browser_mode")
+    url = rc.read_configuration("basic info", "url")
 
-    base_url = config.get("basic info", "url")
+    # 2. Determine which browser to use
+    if exec_mode == 'standalone':
+        browser = rc.read_configuration("basic info", "browser")
+        logging.info(f"Running standalone on '{browser}' in '{run_env}' environment")
+    elif exec_mode == 'parallel':
+        browsers = ["chrome", "firefox", "edge"]
+        # Dynamically assign a browser based on the worker ID (gw0 -> chrome, gw1 -> firefox)
+        browser = browsers[int(worker_id.lstrip("gw")) % len(browsers)]
+        logging.info(f"Worker '{worker_id}' running parallel on '{browser}' in '{run_env}'")
 
-    # Chrome Options
-    options = Options()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-notifications")
+    # 3. Configure Browser Options
+    if browser == 'chrome':
+        options = ChromeOptions()
+    elif browser == 'firefox':
+        options = FirefoxOptions()
+    elif browser == 'edge':
+        options = EdgeOptions()
+    else:
+        raise ValueError(f"Browser '{browser}' is not supported.")
 
-    # Local Chrome Driver
-    driver = webdriver.Chrome(options=options)
+    if browser_mode == 'headless':
+        options.add_argument("--headless")
 
+    # 4. Initialize the WebDriver
+    if run_env == 'local':
+        if browser == 'chrome':
+            driver = webdriver.Chrome(options=options)
+        elif browser == 'firefox':
+            driver = webdriver.Firefox(options=options)
+        elif browser == 'edge':
+            driver = webdriver.Edge(options=options)
+    elif run_env == 'remote':
+        # Connect to your Docker Selenium Grid
+        driver = webdriver.Remote(
+            command_executor='http://localhost:4444/wd/hub',
+            options=options
+        )
+
+    # 5. Setup test environment
+    driver.maximize_window()
     driver.implicitly_wait(10)
+    driver.get(url)
 
-    logging.info(f"Opening URL : {base_url}")
-    driver.get(base_url)
+    # 6. Attach driver to the BaseTest class so your tests can use 'self.driver'
+    request.cls.driver = driver
 
-    time.sleep(3)
+    # 7. Pause fixture here while the test runs
+    yield
 
-    yield driver
-
-    logging.info("Closing browser...")
+    # 8. Teardown: Close the browser after the test finishes
     driver.quit()
+
