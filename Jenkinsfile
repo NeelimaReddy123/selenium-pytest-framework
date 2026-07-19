@@ -38,8 +38,9 @@ pipeline {
 
                 echo "Waiting for Selenium Hub and Node Registration..."
                 for i in {1..30}; do
-                     # Check if the Hub is ready AND has at least one node registered
-                     STATUS=$(curl -s http://127.0.0.1:4444/status)
+                     # Added '|| true' so a temporary connection drop doesn't crash the pipeline
+                     STATUS=$(curl -s http://127.0.0.1:4444/status || true)
+
                      if echo "$STATUS" | grep -q '"ready":true' && echo "$STATUS" | grep -q '"nodeCount":[1-9]'; then
                           echo "Selenium Grid Hub is fully ready with registered nodes!"
                           break
