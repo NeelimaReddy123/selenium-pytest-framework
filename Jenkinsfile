@@ -8,8 +8,8 @@ pipeline {
     }
 
     environment {
-        REPORT_DIR = 'reports'            
-        ALLURE_REPORT_DIR = 'allure_report' 
+        REPORT_DIR = 'reports'
+        ALLURE_REPORT_DIR = 'allure_report'
     }
 
     stages {
@@ -21,9 +21,11 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // REMOVED sudo yum steps to prevent password lockouts
+                // FIXED: Capitalized "Requirements.txt" to match your project exactly
                 sh '''
-                pip3 install -r requirements.txt
+                python3 -m venv venv
+                ./venv/bin/pip install --upgrade pip
+                ./venv/bin/pip install -r Requirements.txt
                 '''
             }
         }
@@ -56,15 +58,15 @@ pipeline {
     post {
         always {
             echo 'Always execute post-actions, even if the stage fails.'
-            
+
             // REMOVED: sh 'allure generate' (The plugin below does this automatically!)
-            
+
             // Generates and archives the report inside the Jenkins UI natively
             allure([
                 results: [[path: "${REPORT_DIR}"]],
                 reportBuildPolicy: 'ALWAYS'
             ])
-            
+
             sh '''
             docker compose -f docker-compose-v3.yml down
             '''
