@@ -33,28 +33,24 @@ pipeline {
         stage('Set Up Selenium Grid') {
             steps {
                 sh '''
+                docker compose -f docker-compose.yml down --remove-orphans
                 docker compose -f docker-compose.yml up -d
-                echo "Waiting for Selenium Grid Hub to be available..."
-                for i in {1..15}; do
-                     if curl -s http://localhost:4444/status | grep -q '"ready":true'; then
-                      echo "Selenium Grid Hub is ready."
-                      break
+
+                echo "Waiting for Selenium Hub and Node Registration..."
+                for i in {1..30}; do
+                     # Check if the Hub is ready AND has at least one node registered
+                     STATUS=$(curl -s http://127.0.0.1:4444/status)
+                     if echo "$STATUS" | grep -q '"ready":true' && echo "$STATUS" | grep -q '"nodeCount":[1-9]'; then
+                          echo "Selenium Grid Hub is fully ready with registered nodes!"
+                          break
                      fi
-                     echo "Waiting for Selenium Grid Hub to initialize..."
+                     echo "Waiting for browser nodes to register (Attempt $i/30)..."
                      sleep 2
                 done
                 '''
             }
         }
 
-//         stage('Run Tests') {
-//             steps {
-//                 sh """
-//                 pytest --alluredir=${REPORT_DIR} -n 3 --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}
-//                 """
-//             }
-//         }
-//     }
             stage('Run Tests') {
                 steps {
                     // FIXED: Explicitly calling the pytest binary inside our virtual environment folder
@@ -64,6 +60,7 @@ pipeline {
                 }
             }
         }
+
     post {
         always {
             echo 'Always execute post-actions, even if the stage fails.'
