@@ -34,7 +34,6 @@ pipeline {
 
         stage('Set Up Selenium Grid') {
             steps {
-                // 2. Shut off all unused browsers, and scale the selected one to 3!
                 sh """
                 docker compose -f docker-compose.yml down --volumes --remove-orphans
 
@@ -47,13 +46,17 @@ pipeline {
                     --scale ${params.BROWSER}=3
 
                 echo "Waiting for Selenium Hub and Node Registration..."
-                for i in {1..30}; do
+
+                # FIXED: Swapped to a POSIX-compliant while loop for Jenkins /bin/sh
+                attempt=1
+                while [ \$attempt -le 30 ]; do
                      STATUS=\$(curl -s http://127.0.0.1:4444/status || true)
                      if echo "\$STATUS" | grep -q '"ready":true' && echo "\$STATUS" | grep -q '"nodeCount":[1-9]'; then
                           echo "Selenium Grid Hub is fully ready with registered nodes!"
                           break
                      fi
-                     echo "Waiting for browser nodes to register (Attempt \$i/30)..."
+                     echo "Waiting for browser nodes to register (Attempt \$attempt/30)..."
+                     attempt=\$((attempt + 1))
                      sleep 2
                 done
                 """
