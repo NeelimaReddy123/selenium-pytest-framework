@@ -30,17 +30,19 @@ pipeline {
             }
         }
 
+
         stage('Set Up Selenium Grid') {
             steps {
                 sh '''
-                docker compose -f docker-compose.yml down --remove-orphans
-                docker compose -f docker-compose.yml up -d
+                # Force tear down completely and wipe anonymous container volumes
+                docker compose -f docker-compose.yml down --volumes --remove-orphans
+
+                # Force recreate the containers to inject the new environment variables
+                docker compose -f docker-compose.yml up -d --force-recreate
 
                 echo "Waiting for Selenium Hub and Node Registration..."
                 for i in {1..30}; do
-                     # Added '|| true' so a temporary connection drop doesn't crash the pipeline
                      STATUS=$(curl -s http://127.0.0.1:4444/status || true)
-
                      if echo "$STATUS" | grep -q '"ready":true' && echo "$STATUS" | grep -q '"nodeCount":[1-9]'; then
                           echo "Selenium Grid Hub is fully ready with registered nodes!"
                           break
