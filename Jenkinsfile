@@ -1,11 +1,16 @@
 pipeline {
     agent any
 
-
+    // COMBINED: Parameters must live inside a single structural block
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Which browser should we test on?')
         choice(name: 'ENVIRONMENT', choices: ['remote', 'local'], description: 'Run on Docker Grid (remote) or Local Machine?')
         choice(name: 'MODE', choices: ['headless', 'normal'], description: 'Run headless for CI/CD speed, or normal for debugging?')
+        string(
+            name: 'WORKERS',
+            defaultValue: '3',
+            description: 'Provide the number of multi-threaded parallel execution threads. Set to 1 to enforce sequential testing.'
+        )
     }
 
     environment {
@@ -22,7 +27,6 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // FIXED: Capitalized "Requirements.txt" to match your project exactly
                 sh '''
                 python3 -m venv venv
                 ./venv/bin/pip install --upgrade pip
@@ -30,7 +34,6 @@ pipeline {
                 '''
             }
         }
-
 
         stage('Set Up Selenium Grid') {
             steps {
@@ -47,7 +50,6 @@ pipeline {
 
                 echo "Waiting for Selenium Hub and Node Registration..."
 
-                # FIXED: Swapped to a POSIX-compliant while loop for Jenkins /bin/sh
                 attempt=1
                 while [ \$attempt -le 30 ]; do
                      STATUS=\$(curl -s http://127.0.0.1:4444/status || true)
@@ -63,23 +65,28 @@ pipeline {
             }
         }
 
-            stage('Run Tests') {
-                steps {
-                    // FIXED: Explicitly calling the pytest binary inside our virtual environment folder
-                    sh """
-                    ./venv/bin/pytest --alluredir=${REPORT_DIR} -n 3 --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}
-                    """
+        stage('Run Tests') {
+            steps {
+                script {
+                    // DYNAMIC WORKER RESOLUTION: Cast string to int safely
+                    def workerCount = params.WORKERS.toInteger()
+
+                    if (workerCount > 1) {
+                        echo "🚀 Spawning an elastic parallel test run utilizing ${workerCount} worker threads..."
+                        sh "./venv/bin/pytest --alluredir=${REPORT_DIR} -n ${workerCount} --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}"
+                    } else {
+                        echo "🔀 Flag set to 1 or lower. Enforcing strict sequential execution..."
+                        sh "./venv/bin/pytest --alluredir=${REPORT_DIR} --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}"
+                    }
                 }
             }
         }
+    }
 
     post {
         always {
             echo 'Always execute post-actions, even if the stage fails.'
 
-            // REMOVED: sh 'allure generate' (The plugin below does this automatically!)
-
-            // Generates and archives the report inside the Jenkins UI natively
             allure([
                 results: [[path: "${REPORT_DIR}"]],
                 reportBuildPolicy: 'ALWAYS'
