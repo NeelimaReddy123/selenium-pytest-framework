@@ -98,6 +98,20 @@ def setup_and_teardown(request):
 
     elif run_environment.lower() == "remote":
 
+        # Explicitly configure standard Selenium W3C options for compliance
+        if browser == "chrome":
+            options.set_capability("browserName", "chrome")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+
+        elif browser == "firefox":
+            options.set_capability("browserName", "firefox")
+
+        elif browser == "edge":
+            options.set_capability("browserName", "MicrosoftEdge")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+
         # FIXED: Routed via 127.0.0.1 and removed the legacy '/wd/hub' path for Selenium 4 Grid compatibility
         driver = webdriver.Remote(
             command_executor="http://127.0.0.1:4444",
