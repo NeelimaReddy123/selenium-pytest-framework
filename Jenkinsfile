@@ -33,7 +33,7 @@ pipeline {
         stage('Set Up Selenium Grid') {
             steps {
                 sh '''
-                docker compose -f docker-compose-v3.yml up -d
+                docker compose -f docker-compose.yml up -d
                 echo "Waiting for Selenium Grid Hub to be available..."
                 for i in {1..15}; do
                      if curl -s http://localhost:4444/status | grep -q '"ready":true'; then
@@ -68,7 +68,7 @@ pipeline {
             ])
 
             sh '''
-            docker compose -f docker-compose-v3.yml down
+            docker compose -f docker-compose.yml down
             '''
         }
     }
