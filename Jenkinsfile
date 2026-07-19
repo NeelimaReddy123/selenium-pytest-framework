@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Which browser should we test on?')
         choice(name: 'ENVIRONMENT', choices: ['remote', 'local'], description: 'Run on Docker Grid (remote) or Local Machine?')
@@ -33,24 +34,29 @@ pipeline {
 
         stage('Set Up Selenium Grid') {
             steps {
-                sh '''
-                # Force tear down completely and wipe anonymous container volumes
+                // 2. Shut off all unused browsers, and scale the selected one to 3!
+                sh """
                 docker compose -f docker-compose.yml down --volumes --remove-orphans
 
-                # Force recreate the containers to inject the new environment variables
-                docker compose -f docker-compose.yml up -d --force-recreate
+                echo "Spinning up 3 nodes for ${params.BROWSER} and 0 for the rest..."
+
+                docker compose -f docker-compose.yml up -d --force-recreate \\
+                    --scale chrome=0 \\
+                    --scale firefox=0 \\
+                    --scale edge=0 \\
+                    --scale ${params.BROWSER}=3
 
                 echo "Waiting for Selenium Hub and Node Registration..."
                 for i in {1..30}; do
-                     STATUS=$(curl -s http://127.0.0.1:4444/status || true)
-                     if echo "$STATUS" | grep -q '"ready":true' && echo "$STATUS" | grep -q '"nodeCount":[1-9]'; then
+                     STATUS=\$(curl -s http://127.0.0.1:4444/status || true)
+                     if echo "\$STATUS" | grep -q '"ready":true' && echo "\$STATUS" | grep -q '"nodeCount":[1-9]'; then
                           echo "Selenium Grid Hub is fully ready with registered nodes!"
                           break
                      fi
-                     echo "Waiting for browser nodes to register (Attempt $i/30)..."
+                     echo "Waiting for browser nodes to register (Attempt \$i/30)..."
                      sleep 2
                 done
-                '''
+                """
             }
         }
 
