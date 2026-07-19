@@ -47,14 +47,23 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh """
-                pytest --alluredir=${REPORT_DIR} -n 3 --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}
-                """
+//         stage('Run Tests') {
+//             steps {
+//                 sh """
+//                 pytest --alluredir=${REPORT_DIR} -n 3 --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}
+//                 """
+//             }
+//         }
+//     }
+            stage('Run Tests') {
+                steps {
+                    // FIXED: Explicitly calling the pytest binary inside our virtual environment folder
+                    sh """
+                    ./venv/bin/pytest --alluredir=${REPORT_DIR} -n 3 --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}
+                    """
+                }
             }
         }
-    }
     post {
         always {
             echo 'Always execute post-actions, even if the stage fails.'
