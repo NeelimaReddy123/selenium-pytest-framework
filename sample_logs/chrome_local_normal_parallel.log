@@ -1,0 +1,104 @@
+07/19/2026 08:47:55 PM: INFO: Execution Mode : standalone
+07/19/2026 08:47:55 PM: INFO: Environment    : local
+07/19/2026 08:47:55 PM: INFO: Browser        : chrome
+07/19/2026 08:47:55 PM: INFO: Browser Mode   : normal
+07/19/2026 08:47:57 PM: INFO: test_search--> test_search_valid_product started
+07/19/2026 08:47:58 PM: INFO: test_search--> test_search_valid_product completed
+
+07/19/2026 08:47:58 PM: INFO: Closing Browser
+07/19/2026 08:47:58 PM: INFO: Execution Mode : standalone
+07/19/2026 08:47:58 PM: INFO: Environment    : local
+07/19/2026 08:47:58 PM: INFO: Browser        : chrome
+07/19/2026 08:47:58 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:00 PM: INFO: test_search--> test_search_invalid_product started
+07/19/2026 08:48:01 PM: INFO: test_search--> test_search_invalid_product completed
+
+07/19/2026 08:48:01 PM: INFO: Closing Browser
+07/19/2026 08:48:01 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:01 PM: INFO: Environment    : local
+07/19/2026 08:48:01 PM: INFO: Browser        : chrome
+07/19/2026 08:48:01 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:03 PM: INFO: test_search--> test_search_empty_product started
+07/19/2026 08:48:03 PM: INFO: test_search--> test_search_empty_product completed
+
+07/19/2026 08:48:03 PM: INFO: Closing Browser
+07/19/2026 08:48:03 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:03 PM: INFO: Environment    : local
+07/19/2026 08:48:03 PM: INFO: Browser        : chrome
+07/19/2026 08:48:03 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:05 PM: INFO: test_login--> test_login_valid_cred started
+07/19/2026 08:48:08 PM: INFO: test_login--> test_login_valid_cred completed
+
+07/19/2026 08:48:08 PM: INFO: Closing Browser
+07/19/2026 08:48:08 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:08 PM: INFO: Environment    : local
+07/19/2026 08:48:08 PM: INFO: Browser        : chrome
+07/19/2026 08:48:08 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:10 PM: INFO: test_login--> test_login_valid_cred started
+07/19/2026 08:48:12 PM: INFO: test_login--> test_login_valid_cred completed
+
+07/19/2026 08:48:12 PM: INFO: Closing Browser
+07/19/2026 08:48:12 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:12 PM: INFO: Environment    : local
+07/19/2026 08:48:12 PM: INFO: Browser        : chrome
+07/19/2026 08:48:12 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:14 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 08:48:17 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 08:48:17 PM: INFO: Closing Browser
+07/19/2026 08:48:17 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:17 PM: INFO: Environment    : local
+07/19/2026 08:48:17 PM: INFO: Browser        : chrome
+07/19/2026 08:48:17 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:19 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 08:48:22 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 08:48:22 PM: INFO: Closing Browser
+07/19/2026 08:48:22 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:22 PM: INFO: Environment    : local
+07/19/2026 08:48:22 PM: INFO: Browser        : chrome
+07/19/2026 08:48:22 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:23 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 08:48:26 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 08:48:26 PM: INFO: Closing Browser
+07/19/2026 08:48:26 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:26 PM: INFO: Environment    : local
+07/19/2026 08:48:26 PM: INFO: Browser        : chrome
+07/19/2026 08:48:26 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:28 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 08:48:33 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 08:48:33 PM: INFO: Closing Browser
+07/19/2026 08:48:33 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:33 PM: INFO: Environment    : local
+07/19/2026 08:48:33 PM: INFO: Browser        : chrome
+07/19/2026 08:48:33 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:35 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 08:48:40 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 08:48:40 PM: INFO: Closing Browser
+07/19/2026 08:48:40 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:40 PM: INFO: Environment    : local
+07/19/2026 08:48:40 PM: INFO: Browser        : chrome
+07/19/2026 08:48:40 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:42 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 08:48:46 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 08:48:46 PM: INFO: Closing Browser
+07/19/2026 08:48:46 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:46 PM: INFO: Environment    : local
+07/19/2026 08:48:46 PM: INFO: Browser        : chrome
+07/19/2026 08:48:46 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:48 PM: INFO: test_register--> test_register_existing_mail started
+07/19/2026 08:48:53 PM: INFO: test_register--> test_register_existing_mail completed
+
+07/19/2026 08:48:53 PM: INFO: Closing Browser
+07/19/2026 08:48:53 PM: INFO: Execution Mode : standalone
+07/19/2026 08:48:53 PM: INFO: Environment    : local
+07/19/2026 08:48:53 PM: INFO: Browser        : chrome
+07/19/2026 08:48:53 PM: INFO: Browser Mode   : normal
+07/19/2026 08:48:55 PM: INFO: test_register--> test_register_without_anyfields started
+07/19/2026 08:48:59 PM: INFO: test_register--> test_register_without_anyfields completed
+
+07/19/2026 08:48:59 PM: INFO: Closing Browser

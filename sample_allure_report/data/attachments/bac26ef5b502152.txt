@@ -1,0 +1,7 @@
+[32mINFO    [0m root:conftest.py:48 Execution Mode : standalone
+[32mINFO    [0m root:conftest.py:49 Environment    : local
+[32mINFO    [0m root:conftest.py:50 Browser        : chrome
+[32mINFO    [0m root:conftest.py:51 Browser Mode   : normal
+[32mINFO    [0m root:test_login.py:15 test_login--> test_login_valid_cred started
+[32mINFO    [0m root:test_login.py:20 test_login--> test_login_valid_cred completed
+[32mINFO    [0m root:conftest.py:143 Closing Browser

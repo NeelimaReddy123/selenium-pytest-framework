@@ -20,3 +20,7 @@ venv38/
 .idea/
 
 test_data/.~lock.data_excel.xlsx#
+
+logs/
+reports/
+allure_reports/
