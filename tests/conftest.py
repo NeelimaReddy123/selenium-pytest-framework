@@ -126,9 +126,13 @@ def setup_and_teardown(request):
     # ===========================
 
     driver.implicitly_wait(10)
-
-    if browser_mode.lower() != "headless":
+    if browser_mode.lower() == "headless":
+        # Force a desktop size for the headless window context
+        driver.set_window_size(1920, 1080)
+    else:
+        # Maximize normally if we can see the browser window
         driver.maximize_window()
+
     driver.get(url)
 
     # Make driver available to BaseTest
