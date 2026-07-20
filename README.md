@@ -232,4 +232,4 @@ selenium-pytest-framework/
 
 ## License
 
-This project is licensed under the  [MIT License](file:///home/neelima/Documents/Selenium_Pytest_Framework/selenium-pytest-framework/LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
+This project is licensed under the  [MIT License](LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
