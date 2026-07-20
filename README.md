@@ -226,9 +226,10 @@ selenium-pytest-framework/
 
 ## Contributors & Credits
 
-- Neelima Busireddy - QA Automation Engineer 
+## Contributors & Credits
 
-- Docker Selenium: The docker-compose.yml baseline is adapted from Selenium's official GitHub repository.
+- **Neelima Busireddy** – QA Automation Engineer
+- **Docker Selenium Grid Configuration** – Adapted from the [SeleniumHQ/docker-selenium](https://github.com/SeleniumHQ/docker-selenium) official GitHub repository.
 
 ## License
 
