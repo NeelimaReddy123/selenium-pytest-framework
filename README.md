@@ -179,19 +179,6 @@ https://github.com/NeelimaReddy123/selenium-pytest-framework.git
 In the Script Path option, specify: Jenkinsfile
 Click Save and select Build Now to verify the pipeline executes successfully
 
-## 📸 Framework Demonstration
-
-### Jenkins Pipeline
-
-![Jenkins Dashboard](images/jenkins_dashboard.png)
-
-### Selenium Grid
-
-![Selenium Grid](images/selenium-grid.png)
-
-### Allure Report
-
-![Allure Report](images/allure_testcase_details.png)
 
 ## 🏗️ Project Directory Structure
 
