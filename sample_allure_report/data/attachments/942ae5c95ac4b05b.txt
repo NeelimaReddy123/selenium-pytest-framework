@@ -1,0 +1,7 @@
+INFO     root:conftest.py:48 Execution Mode : standalone
+INFO     root:conftest.py:49 Environment    : remote
+INFO     root:conftest.py:50 Browser        : chrome
+INFO     root:conftest.py:51 Browser Mode   : normal
+INFO     root:test_login.py:15 test_login--> test_login_valid_cred started
+INFO     root:test_login.py:20 test_login--> test_login_valid_cred completed
+INFO     root:conftest.py:143 Closing Browser

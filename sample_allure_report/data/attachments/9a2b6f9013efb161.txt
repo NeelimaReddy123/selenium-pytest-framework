@@ -1,0 +1,7 @@
+[32mINFO    [0m root:conftest.py:48 Execution Mode : standalone
+[32mINFO    [0m root:conftest.py:49 Environment    : local
+[32mINFO    [0m root:conftest.py:50 Browser        : chrome
+[32mINFO    [0m root:conftest.py:51 Browser Mode   : normal
+[32mINFO    [0m root:test_search.py:31 test_search--> test_search_empty_product started
+[32mINFO    [0m root:test_search.py:38 test_search--> test_search_empty_product completed
+[32mINFO    [0m root:conftest.py:143 Closing Browser

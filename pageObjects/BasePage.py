@@ -55,9 +55,18 @@ class Base_Page():
 
     def type_into_element(self, text, locator):
         """Type text into element"""
+        # 1. Sanitize the input: convert None to empty string, and numbers to strings
+        if text is None:
+            text = ""
+        else:
+            text = str(text)
+
+        # 2. Proceed with standard UI interaction
         element = self.wait_for_element_visibility(locator)
         element.click()
         element.clear()
+
+        # 3. Send the safely formatted string
         element.send_keys(text)
 
     def click_element(self, locator):

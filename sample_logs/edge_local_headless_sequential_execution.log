@@ -1,0 +1,104 @@
+07/19/2026 09:27:17 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:17 PM: INFO: Environment    : local
+07/19/2026 09:27:17 PM: INFO: Browser        : edge
+07/19/2026 09:27:17 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:19 PM: INFO: test_search--> test_search_valid_product started
+07/19/2026 09:27:20 PM: INFO: test_search--> test_search_valid_product completed
+
+07/19/2026 09:27:20 PM: INFO: Closing Browser
+07/19/2026 09:27:20 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:20 PM: INFO: Environment    : local
+07/19/2026 09:27:20 PM: INFO: Browser        : edge
+07/19/2026 09:27:20 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:22 PM: INFO: test_search--> test_search_invalid_product started
+07/19/2026 09:27:23 PM: INFO: test_search--> test_search_invalid_product completed
+
+07/19/2026 09:27:23 PM: INFO: Closing Browser
+07/19/2026 09:27:23 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:23 PM: INFO: Environment    : local
+07/19/2026 09:27:23 PM: INFO: Browser        : edge
+07/19/2026 09:27:23 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:25 PM: INFO: test_search--> test_search_empty_product started
+07/19/2026 09:27:25 PM: INFO: test_search--> test_search_empty_product completed
+
+07/19/2026 09:27:25 PM: INFO: Closing Browser
+07/19/2026 09:27:25 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:25 PM: INFO: Environment    : local
+07/19/2026 09:27:25 PM: INFO: Browser        : edge
+07/19/2026 09:27:25 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:27 PM: INFO: test_login--> test_login_valid_cred started
+07/19/2026 09:27:30 PM: INFO: test_login--> test_login_valid_cred completed
+
+07/19/2026 09:27:30 PM: INFO: Closing Browser
+07/19/2026 09:27:30 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:30 PM: INFO: Environment    : local
+07/19/2026 09:27:30 PM: INFO: Browser        : edge
+07/19/2026 09:27:30 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:32 PM: INFO: test_login--> test_login_valid_cred started
+07/19/2026 09:27:34 PM: INFO: test_login--> test_login_valid_cred completed
+
+07/19/2026 09:27:34 PM: INFO: Closing Browser
+07/19/2026 09:27:34 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:34 PM: INFO: Environment    : local
+07/19/2026 09:27:34 PM: INFO: Browser        : edge
+07/19/2026 09:27:34 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:36 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 09:27:38 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 09:27:38 PM: INFO: Closing Browser
+07/19/2026 09:27:38 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:38 PM: INFO: Environment    : local
+07/19/2026 09:27:38 PM: INFO: Browser        : edge
+07/19/2026 09:27:38 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:40 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 09:27:42 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 09:27:42 PM: INFO: Closing Browser
+07/19/2026 09:27:42 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:42 PM: INFO: Environment    : local
+07/19/2026 09:27:42 PM: INFO: Browser        : edge
+07/19/2026 09:27:42 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:44 PM: INFO: test_invalid_login--> test_invalid_login started
+07/19/2026 09:27:47 PM: INFO: test_invalid_login--> test_invalid_login completed
+
+07/19/2026 09:27:47 PM: INFO: Closing Browser
+07/19/2026 09:27:47 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:47 PM: INFO: Environment    : local
+07/19/2026 09:27:47 PM: INFO: Browser        : edge
+07/19/2026 09:27:47 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:48 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 09:27:53 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 09:27:53 PM: INFO: Closing Browser
+07/19/2026 09:27:53 PM: INFO: Execution Mode : standalone
+07/19/2026 09:27:53 PM: INFO: Environment    : local
+07/19/2026 09:27:53 PM: INFO: Browser        : edge
+07/19/2026 09:27:53 PM: INFO: Browser Mode   : headless
+07/19/2026 09:27:55 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 09:27:59 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 09:27:59 PM: INFO: Closing Browser
+07/19/2026 09:28:00 PM: INFO: Execution Mode : standalone
+07/19/2026 09:28:00 PM: INFO: Environment    : local
+07/19/2026 09:28:00 PM: INFO: Browser        : edge
+07/19/2026 09:28:00 PM: INFO: Browser Mode   : headless
+07/19/2026 09:28:01 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 09:28:06 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 09:28:06 PM: INFO: Closing Browser
+07/19/2026 09:28:06 PM: INFO: Execution Mode : standalone
+07/19/2026 09:28:06 PM: INFO: Environment    : local
+07/19/2026 09:28:06 PM: INFO: Browser        : edge
+07/19/2026 09:28:06 PM: INFO: Browser Mode   : headless
+07/19/2026 09:28:08 PM: INFO: test_register--> test_register_existing_mail started
+07/19/2026 09:28:13 PM: INFO: test_register--> test_register_existing_mail completed
+
+07/19/2026 09:28:13 PM: INFO: Closing Browser
+07/19/2026 09:28:13 PM: INFO: Execution Mode : standalone
+07/19/2026 09:28:13 PM: INFO: Environment    : local
+07/19/2026 09:28:13 PM: INFO: Browser        : edge
+07/19/2026 09:28:13 PM: INFO: Browser Mode   : headless
+07/19/2026 09:28:14 PM: INFO: test_register--> test_register_without_anyfields started
+07/19/2026 09:28:19 PM: INFO: test_register--> test_register_without_anyfields completed
+
+07/19/2026 09:28:19 PM: INFO: Closing Browser

@@ -1,0 +1,41 @@
+07/19/2026 09:15:09 PM: INFO: Execution Mode : standalone
+07/19/2026 09:15:09 PM: INFO: Environment    : remote
+07/19/2026 09:15:09 PM: INFO: Browser        : firefox
+07/19/2026 09:15:09 PM: INFO: Browser Mode   : headless
+07/19/2026 09:15:58 PM: INFO: test_search--> test_search_valid_product started
+07/19/2026 09:15:59 PM: INFO: test_search--> test_search_valid_product completed
+
+07/19/2026 09:15:59 PM: INFO: Closing Browser
+07/19/2026 09:16:00 PM: INFO: Execution Mode : standalone
+07/19/2026 09:16:00 PM: INFO: Environment    : remote
+07/19/2026 09:16:00 PM: INFO: Browser        : firefox
+07/19/2026 09:16:00 PM: INFO: Browser Mode   : headless
+07/19/2026 09:16:20 PM: INFO: test_search--> test_search_invalid_product started
+07/19/2026 09:16:21 PM: INFO: test_search--> test_search_invalid_product completed
+
+07/19/2026 09:16:21 PM: INFO: Closing Browser
+07/19/2026 09:16:22 PM: INFO: Execution Mode : standalone
+07/19/2026 09:16:22 PM: INFO: Environment    : remote
+07/19/2026 09:16:22 PM: INFO: Browser        : firefox
+07/19/2026 09:16:22 PM: INFO: Browser Mode   : headless
+07/19/2026 09:17:01 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 09:17:07 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 09:17:07 PM: INFO: Closing Browser
+:15 PM: INFO: Execution Mode : standalone
+07/19/2026 09:16:15 PM: INFO: Environment    : remote
+07/19/2026 09:16:15 PM: INFO: Browser        : firefox
+07/19/2026 09:16:15 PM: INFO: Browser Mode   : headless
+07/19/2026 09:16:42 PM: INFO: test_register--> test_register_all_fields started
+07/19/2026 09:16:47 PM: INFO: test_register--> test_register_all_fields completed
+
+07/19/2026 09:16:47 PM: INFO: Closing Browser
+07/19/2026 09:16:48 PM: INFO: Execution Mode : standalone
+07/19/2026 09:16:48 PM: INFO: Environment    : remote
+07/19/2026 09:16:48 PM: INFO: Browser        : firefox
+07/19/2026 09:16:48 PM: INFO: Browser Mode   : headless
+07/19/2026 09:17:11 PM: INFO: test_register--> test_register_existing_mail started
+07/19/2026 09:17:16 PM: INFO: test_register--> test_register_existing_mail completed
+
+07/19/2026 09:17:16 PM: INFO: Closing Browser
+Browser

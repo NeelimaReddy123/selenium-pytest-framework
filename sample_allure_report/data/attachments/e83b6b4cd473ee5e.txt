@@ -1,0 +1,7 @@
+INFO     root:conftest.py:48 Execution Mode : standalone
+INFO     root:conftest.py:49 Environment    : local
+INFO     root:conftest.py:50 Browser        : chrome
+INFO     root:conftest.py:51 Browser Mode   : headless
+INFO     root:test_login.py:24 test_invalid_login--> test_invalid_login started
+INFO     root:test_login.py:30 test_invalid_login--> test_invalid_login completed
+INFO     root:conftest.py:143 Closing Browser

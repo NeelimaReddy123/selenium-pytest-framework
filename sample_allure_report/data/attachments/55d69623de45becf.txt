@@ -1,0 +1,7 @@
+INFO     root:conftest.py:48 Execution Mode : standalone
+INFO     root:conftest.py:49 Environment    : remote
+INFO     root:conftest.py:50 Browser        : firefox
+INFO     root:conftest.py:51 Browser Mode   : headless
+INFO     root:test_register.py:28 test_register--> test_register_existing_mail started
+INFO     root:test_register.py:36 test_register--> test_register_existing_mail completed
+INFO     root:conftest.py:143 Closing Browser

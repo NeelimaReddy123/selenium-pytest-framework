@@ -1,0 +1,7 @@
+INFO     root:conftest.py:48 Execution Mode : standalone
+INFO     root:conftest.py:49 Environment    : remote
+INFO     root:conftest.py:50 Browser        : chrome
+INFO     root:conftest.py:51 Browser Mode   : normal
+INFO     root:test_register.py:39 test_register--> test_register_without_anyfields started
+INFO     root:test_register.py:58 test_register--> test_register_without_anyfields completed
+INFO     root:conftest.py:143 Closing Browser

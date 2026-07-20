@@ -1,24 +1,33 @@
-# Selenium-pytest-Framework
+<div align="center">
 
-### A Hybrid Automation Framework for Testing an E-commerce Application Using Selenium, Pytest, Allure, Docker, Jenkins
+  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" alt="Selenium Logo" width="120" height="120" />
 
-![img.png](img.png)
+  # Selenium Pytest Automation Framework
+  [![Follow](https://img.shields.io/badge/Follow-Neelima-blue?style=flat-square&logo=github)](https://github.com/NeelimaReddy123)
+  [![Framework](https://img.shields.io/badge/Architecture-Pytest-green?style=flat-square&logo=pytest)](https://docs.pytest.org/)
+  [![Docker](https://img.shields.io/badge/Grid-Docker--Enabled-blue?style=flat-square&logo=docker)](https://www.docker.com/)
+  [![CI/CD Pipeline](https://img.shields.io/badge/Jenkins-Passing-brightgreen?style=flat-square&logo=jenkins)](https://www.jenkins.io/)
+  [![Reporting](https://img.shields.io/badge/Allure-Enabled-orange?style=flat-square)](https://allurereport.org/)
+  ![img.png](img.png) 
+  ---
+</div>
+
+# About
+
+### An enterprise-grade, highly scalable automation framework designed with Python, Pytest, Selenium 4, and Docker. It features multi-threaded parallel execution, a comprehensive logging engine, dynamic local/remote execution modes, and fully interactive Allure reporting built directly into a Jenkins CI/CD pipeline.
+
 ----------
 
 ## Table of Contents
 
-1.  [Project Overview](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#project-overview)
-2.  [Features](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#features)
-3.  [Technologies Used](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#technologies-used)
-4.  [Project Setup](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#project-setup)
-5.  [Running Tests Locally](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#running-tests-locally)
-6.  [Running Tests with Cloud Integration](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#running-tests-with-cloud-integration)
-7.  [Sample Reports](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#sample-reports)
-8.  [Folder Structure](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#folder-structure)
-9.  [Future Enhancements](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#future-enhancements)
-10.  [Contributors](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#contributors)
-11.  [Credits](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#credits)
-12.  [License](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#license)
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Project Setup & Prerequisites](#%EF%B8%8F-project-setup--prerequisites)
+5. [Project Directory Structure](#%EF%B8%8F-project-directory-structure)
+6. [Future Enhancements](#future-enhancements)
+7. [Contributors & Credits](#contributors--credits)
+8. [License](#license)
 
 ----------
 
@@ -39,9 +48,6 @@ This project automates functional testing for a demo e-commerce web application 
 -   **Functional Coverage**:
     -   User login tests
     -   Registration tests
-    -   Product search tests
-    -   Add to cart functionality
-    -   Cart and checkout page validations
 -   **Parallel Test Execution**  with  `pytest-xdist`.
 -   **Allure Integration**  for detailed reporting.
 -   **Dockerized Selenium Grid**  for distributed testing.
@@ -56,103 +62,138 @@ This project automates functional testing for a demo e-commerce web application 
 -   **Containerization**: Docker and Docker Compose
 
 ----------
+## 🛠️ Project Setup & Prerequisites
 
-## Project Setup
+### 1. Local Workspace Initialization
 
-### 1. Prerequisites
+Before executing tests locally, ensure your machine meets the following environment requirements:
 
--   #### For Local System
-    
-    -   **Python 3.9+**  installed.
-    -   **Node.js Installed**
-        -   Allure CLI requires Node.js. Install it from the official  [Node.js website](https://nodejs.org/).
-        -   Run the following command to install Allure CLI:
-            
-            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
-            
-            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)npm install -g allure-commandline` 
-            
-        -   Verify installation by running:
-            
-            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
-            
-            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)allure --version` 
-            
-    -   **Allure Command-line Tool**
-        -   Add Allure CLI to your system path if necessary.
-    -   **Python Dependencies**
-        -   Install the required Python libraries using  `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/run.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pip`:
-            
-            ![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
-            
-            `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pip install -r requirements.txt` 
-            
--   
-    -   **In Jenkins Global tool configurations**
-        
-        -   Add Java configuration:
-            -   Name:  `Java 21`  (any name)
-            -   Provide installation path (e.g.,  `/usr/lib/jvm/java-21-amazon-corretto`)
-            -   Do not select "Install automatically" since Java is already installed
-        -   Configure Allure CLI
-            -   Name:  `Allure CLI`  (any name)
-            -   Provide installation path (e.g.,  `/opt/allure`)
+- **Python 3.9+** – Installed and added to system paths.
+- **Node.js Environment** – Required to manage the Allure Reporting command-line binaries. Download from the [Official Node.js Website](https://nodejs.org/).
+- **Allure CLI Installation** – Run the global installation package manager command:
+```bash
+npm install -g allure-commandline
+```
 
-### 2. Clone the Repository
+Verify Allure Installation:
+```bash
+    allure --version
+```
 
-![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+### 2. Clone the Repository & Install Dependencies
 
-`[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)https://github.com/NeelimaReddy123/selenium-pytest-framework/
-remote:  cd selenium-pytest-framework` 
+Clone your project workspace to your local directory and install dependencies:
 
-## Run Tests Locally
+```bash
+git clone [https://github.com/NeelimaReddy123/selenium-pytest-framework.git](https://github.com/NeelimaReddy123/selenium-pytest-framework.git)
+cd selenium-pytest-framework
+pip install -r Requirements.txt
+```
 
-### 1. Setup in config.ini
+### 3.🛠️ Local Test Execution Configurations
+This framework leverages customizable runtime command-line options to determine the browser engine, runtime infrastructure, parallelism rules, and execution modes.
+1. Sequential Execution Workflow
+To run the automated suite linearly, executing one test case at a time on your local workspace:
+```bash
+pytest tests/ --alluredir=reports --browser chrome --env local --mode normal
+```
 
-set execution=parallel  &  run_environment=local
+2. Multi-Threaded Parallel Execution (pytest-xdist)
+To minimize execution bottlenecks, run multiple test workers simultaneously using the -n flag (distributing tests across 3 dedicated worker threads):
+```bash
+pytest tests/ --alluredir=reports -n 3 --browser chrome --env local --mode normal
+```
 
-### 2. Run the test scripts in parallel mode()
+3. Isolated Selenium Grid Pipeline Simulation (Docker Mode)
+To replicate enterprise Jenkins CI/CD execution directly on your local machine, route test threads through scalable Docker containers:
+#### A. Orchestrate the Selenium Hub and spin up 3 isolated Chrome execution nodes
+```bash
+docker compose -f docker-compose.yml up -d --scale chrome=3
+```
 
-![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+#### B. Execute the test suite directly at the active grid cluster
+```bash
+pytest tests/ --alluredir=reports -n 3 --browser chrome --env remote --mode headless
+```
 
-`[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#)pytest tests/ --alluredir=reports -n 3` 
+#### C. Spin down and clean the containerized grid once execution completes
+```bash
+docker compose -f docker-compose.yml down
+```
+ 
+### 4.📋 Logging & Reporting Engine Guide
 
-### 3. Generate Allure Reports
+#### 📝 Live Framework Logging System
+Runtime activities are logged dynamically and routed to logs/automation_run.log. Logging behavior is configured through the pytest.ini file.
 
-![](http://localhost:63342/markdownPreview/1505005215//home/neelima/Documents/CloudEcomAutomation)
+> **Note**: Active logs (logs/), raw test reports (reports/), and generated reports (allure_reports/) are excluded from version control via .gitignore to prevent merge conflicts and repository bloat.
 
- `[![](http://localhost:63342/markdownPreview/1232844968/commandRunner/runrun.png)](http://localhost:63342/markdownPreview/1232844968/markdown-preview-index-s6hkpc3v82vbsu4lv2lm9orbvd.html#) allure generate reports --clean -o allure_report allure open allure_report` 
+####  📊 Allure Reporting Operations
+Stream a Quick Ephemeral Report
+Compile raw JSON metadata into a temporary local report server for immediate review:
+allure serve reports
 
-## Running Tests with Cloud Integration
+Compile and Archive a Permanent Report
+Build a standalone, long-term mini-website with styling sheets, execution data, and assets:
+```bash
+allure generate reports --clean -o allure_reports
+```
+View Archived Reports Correctly
+Modern web browser security (CORS policies) blocks direct file access. Use the Allure CLI to host a local proxy server:
+### View your test execution results:
+```bash
+- allure open allure_reports
+```
 
-### 1. Dockerized Selenium Grid
+### View the sample reference report:
+```bash
+allure open sample_allure_report
+```
+Press Ctrl + C in your terminal to close the reporting server when finished.
+ 
+### 5.🚀 Running Tests with Cloud Integration (CI/CD)
+1. Dockerized Selenium Grid Setup
+The framework includes a docker-compose.yml blueprint that automatically deploys:
+An enterprise-grade elastic Selenium Hub
+Chrome, Firefox, and Edge browser node workers
+Isolated execution dependencies from the host system
 
-The docker-compose.yml file sets up a Selenium Hub and 3 browser nodes  (Chrome,  Firefox,  Edge)  for parallel testing.
+2. Automated Jenkins Infrastructure Configurations
+Verify the following configurations under Jenkins Global Tool Configuration:
+Java Environment Setup:
+Name: Java 21 (or matching runtime version)
+JAVA_HOME Directory: Your environment path (e.g., /usr/lib/jvm/java-21-amazon-corretto)
+> **Note**: Leave "Install automatically" unselected if already installed on the host
+Allure Reporting Binary Tool Configuration:
+Name: Allure CLI (must match the Jenkinsfile reference)
+Installation Path: Your installation location (e.g., /opt/allure)
 
-### 2. Jenkins CI/CD
+3. Orchestrating a New Jenkins Pipeline Execution Instance
+Access your Jenkins dashboard and select New Item
+Define a project name and select Pipeline project type
+Under Pipeline settings, select Pipeline Script from SCM
 
-'Jenkinsfile'  is configured for installing python,pip,docker  &  all other dependencies using requirements.txt file,  then runs python scrips,  generate allure reports
+Set Source Code Management to Git and paste your repository URL:
+https://github.com/NeelimaReddy123/selenium-pytest-framework.git
+In the Script Path option, specify: Jenkinsfile
+Click Save and select Build Now to verify the pipeline executes successfully
 
-### 3. Creating New Jenkins Pipeline Job
 
--   Navigate to the Jenkins dashboard and create a new pipeline job.
--   Configure the pipeline to use your GitHub repository & also link the Jenkinsfile
--   Set up build triggers like GitHub webhook or schedule (optional)
--   Run the build & pipeline will handle the execution of test scripts, Docker, and report generation.
+## 🏗️ Project Directory Structure
 
-## Folder Structure
-
+```text
 selenium-pytest-framework/
-├── assets/                    # Screenshots and report images for documentation
-├── Configurations/           # Global environment variables and config.ini
+├── Configurations/         # Global environment variables and config.ini
 ├── pageObjects/            # Encapsulated web elements and page action methods
-├── tests/                   # Pytest automation scripts and conftest.py fixtures
-├── testData/               # External files (Excel/JSON) for data-driven testing
-├── utilities/              # Custom logger, config readers, and driver handlers
+├── reports/                # Raw JSON test result outputs (git-ignored)
+├── tests/                  # Pytest automation scripts and conftest.py fixtures
+├── test_data/              # External files (Excel/JSON) for data-driven testing
+├── utils/                  # Custom logger, config readers, and driver handlers
 ├── docker-compose.yml      # Configuration for local Selenium Grid setup
 ├── Jenkinsfile             # Declarative pipeline instructions for CI/CD
-├── requirements.txt        # Frozen Python package dependencies
+├── Requirements.txt        # Frozen Python package dependencies
 └── README.md               # Project documentation
+```
 
 
 ## Future Enhancements
@@ -160,13 +201,11 @@ selenium-pytest-framework/
 -   Add more test cases for payment gateway integration.
 -   Implement API testing for backend functionalities.
 
-## Contributors
+## Contributors & Credits
 
-**Neelima Busireddy**  (Owner and Contributor)
+- Neelima Busireddy - Automation Engineer & Framework Architect
 
-## Credits
-
-The  `docker-compose.yml`  file is adapted from  [Selenium's official GitHub repository](https://github.com/SeleniumHQ/docker-selenium).
+- Docker Selenium: The docker-compose.yml baseline is adapted from Selenium's official GitHub repository.
 
 ## License
 

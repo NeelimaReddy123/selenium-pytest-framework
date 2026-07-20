@@ -1,0 +1,7 @@
+INFO     root:conftest.py:48 Execution Mode : standalone
+INFO     root:conftest.py:49 Environment    : local
+INFO     root:conftest.py:50 Browser        : chrome
+INFO     root:conftest.py:51 Browser Mode   : normal
+INFO     root:test_search.py:21 test_search--> test_search_invalid_product started
+INFO     root:test_search.py:28 test_search--> test_search_invalid_product completed
+INFO     root:conftest.py:143 Closing Browser

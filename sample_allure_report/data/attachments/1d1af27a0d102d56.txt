@@ -1,0 +1,7 @@
+[32mINFO    [0m root:conftest.py:48 Execution Mode : standalone
+[32mINFO    [0m root:conftest.py:49 Environment    : local
+[32mINFO    [0m root:conftest.py:50 Browser        : edge
+[32mINFO    [0m root:conftest.py:51 Browser Mode   : headless
+[32mINFO    [0m root:test_login.py:24 test_invalid_login--> test_invalid_login started
+[32mINFO    [0m root:test_login.py:30 test_invalid_login--> test_invalid_login completed
+[32mINFO    [0m root:conftest.py:143 Closing Browser
