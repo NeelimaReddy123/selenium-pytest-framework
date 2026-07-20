@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    // COMBINED: Parameters must live inside a single structural block
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Which browser should we test on?')
         choice(name: 'ENVIRONMENT', choices: ['remote', 'local'], description: 'Run on Docker Grid (remote) or Local Machine?')
@@ -38,7 +37,11 @@ pipeline {
         stage('Set Up Selenium Grid') {
             steps {
                 sh """
+                echo "Cleaning up any existing project containers..."
                 docker compose -f docker-compose.yml down --volumes --remove-orphans
+
+                echo "Ensuring name conflicts are resolved..."
+                docker rm -f selenium-hub || true
 
                 echo "Spinning up 3 nodes for ${params.BROWSER} and 0 for the rest..."
 
@@ -68,7 +71,6 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // DYNAMIC WORKER RESOLUTION: Cast string to int safely
                     def workerCount = params.WORKERS.toInteger()
 
                     if (workerCount > 1) {
@@ -78,6 +80,18 @@ pipeline {
                         echo "🔀 Flag set to 1 or lower. Enforcing strict sequential execution..."
                         sh "./venv/bin/pytest --alluredir=${REPORT_DIR} --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}"
                     }
+
+                    echo "📝 Injecting Jenkins build data into Allure results..."
+                    def executorJson = """{
+                        "name": "Jenkins",
+                        "type": "jenkins",
+                        "url": "${env.JENKINS_URL ?: ''}",
+                        "buildOrder": ${env.BUILD_NUMBER ?: 1},
+                        "buildName": "${env.JOB_NAME ?: 'Selenium-Framework'} #${env.BUILD_NUMBER ?: 1}",
+                        "buildUrl": "${env.BUILD_URL ?: ''}"
+                    }"""
+
+                    writeFile file: "${REPORT_DIR}/executor.json", text: executorJson
                 }
             }
         }

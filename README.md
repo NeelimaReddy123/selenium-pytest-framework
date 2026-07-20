@@ -85,7 +85,8 @@ Verify Allure Installation:
 Clone your project workspace to your local directory and install dependencies:
 
 ```bash
-git clone [https://github.com/NeelimaReddy123/selenium-pytest-framework.git](https://github.com/NeelimaReddy123/selenium-pytest-framework.git)
+```bash
+git clone https://github.com/NeelimaReddy123/selenium-pytest-framework.git
 cd selenium-pytest-framework
 pip install -r Requirements.txt
 ```
@@ -178,6 +179,19 @@ https://github.com/NeelimaReddy123/selenium-pytest-framework.git
 In the Script Path option, specify: Jenkinsfile
 Click Save and select Build Now to verify the pipeline executes successfully
 
+## 📸 Framework Demonstration
+
+### Jenkins Pipeline
+
+![Jenkins Dashboard](images/jenkins_dashboard.png)
+
+### Allure Report
+
+![Allure Report](images/allure-dashboard.png)
+
+### Allure TestCase Details
+
+![Allure Report](images/allure-testcase-details.png)
 
 ## 🏗️ Project Directory Structure
 
@@ -186,17 +200,25 @@ selenium-pytest-framework/
 ├── Configurations/         # Global environment variables and config.ini
 ├── pageObjects/            # Encapsulated web elements and page action methods
 ├── reports/                # Raw JSON test result outputs (git-ignored)
-├── tests/                  # Pytest automation scripts and conftest.py fixtures
+├── sample_allure_report/   # Sample generated Allure HTML report
+├── sample_logs/            # Sample execution logs
 ├── test_data/              # External files (Excel/JSON) for data-driven testing
+├── tests/                  # Pytest automation scripts and conftest.py fixtures
 ├── utils/                  # Custom logger, config readers, and driver handlers
 ├── docker-compose.yml      # Configuration for local Selenium Grid setup
 ├── Jenkinsfile             # Declarative pipeline instructions for CI/CD
 ├── Requirements.txt        # Frozen Python package dependencies
-└── README.md               # Project documentation
+├── README.md               # Project documentation
+└── .gitignore              # Git ignore rules
 ```
 
+> **Note**
+>
+> - `reports/` and `logs/` are generated automatically during test execution and are excluded from version control via `.gitignore`.
+> - `sample_logs/` contains a sample execution log (`automation_run.log`) generated from a successful local test run.
+> - `sample_allure_report/` contains a sample Allure HTML report to demonstrate the framework's reporting capabilities.
 
-## Future Enhancements
+### Future Enhancements
 
 -   Add more test cases for payment gateway integration.
 -   Implement API testing for backend functionalities.
@@ -209,4 +231,4 @@ selenium-pytest-framework/
 
 ## License
 
-This project is licensed under the  [MIT License](file:///home/neelima/Documents/CloudEcomAutomation/LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
+This project is licensed under the  [MIT License](file:///home/neelima/Documents/Selenium_Pytest_Framework/selenium-pytest-framework/LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
