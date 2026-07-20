@@ -25,9 +25,10 @@
 3. [Technologies Used](#technologies-used)
 4. [Project Setup & Prerequisites](#%EF%B8%8F-project-setup--prerequisites)
 5. [Project Directory Structure](#%EF%B8%8F-project-directory-structure)
-6. [Future Enhancements](#future-enhancements)
-7. [Contributors & Credits](#contributors--credits)
-8. [License](#license)
+6. [Framework Demonstration](#-framework-demonstration)
+7. [Future Enhancements](#future-enhancements)
+8. [Contributors & Credits](#contributors--credits)
+9. [License](#license)
 
 ----------
 
@@ -225,10 +226,11 @@ selenium-pytest-framework/
 
 ## Contributors & Credits
 
-- Neelima Busireddy - Automation Engineer & Framework Architect
+## Contributors & Credits
 
-- Docker Selenium: The docker-compose.yml baseline is adapted from Selenium's official GitHub repository.
+- **Neelima Busireddy** – QA Automation Engineer
+- **Docker Selenium Grid Configuration** – Adapted from the [SeleniumHQ/docker-selenium](https://github.com/SeleniumHQ/docker-selenium) official GitHub repository.
 
 ## License
 
-This project is licensed under the  [MIT License](file:///home/neelima/Documents/Selenium_Pytest_Framework/selenium-pytest-framework/LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
+This project is licensed under the  [MIT License](LICENSE).  Feel free to use,  modify,  and distribute the code with attribution.
