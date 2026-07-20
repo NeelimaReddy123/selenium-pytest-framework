@@ -68,7 +68,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // DYNAMIC WORKER RESOLUTION: Cast string to int safely
+                    // 1. DYNAMIC WORKER RESOLUTION: Cast string to int safely
                     def workerCount = params.WORKERS.toInteger()
 
                     if (workerCount > 1) {
@@ -78,10 +78,23 @@ pipeline {
                         echo "🔀 Flag set to 1 or lower. Enforcing strict sequential execution..."
                         sh "./venv/bin/pytest --alluredir=${REPORT_DIR} --browser ${params.BROWSER} --env ${params.ENVIRONMENT} --mode ${params.MODE}"
                     }
+
+                    // 2. EXECUTOR INJECTION: Dynamically generate executor.json right after tests finish
+                    echo "📝 Injecting Jenkins build data into Allure results..."
+                    def executorJson = """{
+                        "name": "Jenkins",
+                        "type": "jenkins",
+                        "url": "${env.JENKINS_URL ?: ''}",
+                        "buildOrder": ${env.BUILD_NUMBER ?: 1},
+                        "buildName": "${env.JOB_NAME ?: 'Selenium-Framework'} #${env.BUILD_NUMBER ?: 1}",
+                        "buildUrl": "${env.BUILD_URL ?: ''}"
+                    }"""
+
+                    // 3. WRITE TO DIRECTORY: Saves the file right before the 'post' block triggers Allure archiving
+                    writeFile file: "${REPORT_DIR}/executor.json", text: executorJson
                 }
             }
         }
-    }
 
     post {
         always {
